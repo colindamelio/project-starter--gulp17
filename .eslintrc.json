@@ -1,0 +1,38 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+
+    "extends": "eslint:recommended",
+
+    "globals": {
+      "require": true
+    },
+
+    "rules": {
+        "no-unused-vars": [2, {
+          "vars": "all",
+          "args": "none"
+        }],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "indent": [
+          2,
+          2
+        ],
+        "no-console": [
+          1
+        ]
+    }
+}
