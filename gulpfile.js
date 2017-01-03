@@ -57,8 +57,10 @@ gulp.task('watch', ['browserSync', 'sass', 'lint'], function() {
 
 // Browser Sync
 gulp.task('browserSync', function() {
-  browserSync.init({server: {baseDir: './'
-  },
+  browserSync.init({
+    server: {
+      baseDir: './'
+    },
   });
 });
 
