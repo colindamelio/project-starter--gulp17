@@ -1,22 +1,20 @@
-// Include gulp
-var gulp = require('gulp');
-
-// Include Our Plugins
-var jshint = require('gulp-jshint');
-var stylish = require('jshint-stylish');
-var sass = require('gulp-sass');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
-var browserSync = require('browser-sync').create();
-var autoprefixer = require('gulp-autoprefixer');
-var imagemin = require('gulp-imagemin');
+// include gulp & plugins
+var gulp = require('gulp'),
+  jshint = require('gulp-jshint'),
+  stylish = require('jshint-stylish'),
+  sass = require('gulp-sass'),
+  concat = require('gulp-concat'),
+  uglify = require('gulp-uglify'),
+  rename = require('gulp-rename'),
+  browserSync = require('browser-sync').create(),
+  autoprefixer = require('gulp-autoprefixer'),
+  imagemin = require('gulp-imagemin');
 
 // Lint Task
 gulp.task('lint', function() {
-  return gulp.src('js/*.js')
+  return gulp.src('dev/js/*.js')
     .pipe(jshint())
-    .pipe(jshint.reporter(stylish));
+    .pipe(jshint.reporter(stylish, {beep: true}));
 });
 
 // Compile Our Sass
