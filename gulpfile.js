@@ -8,12 +8,15 @@ var gulp = require('gulp'),
   rename = require('gulp-rename'),
   browserSync = require('browser-sync').create(),
   autoprefixer = require('gulp-autoprefixer'),
-  imagemin = require('gulp-imagemin');
+  imagemin = require('gulp-imagemin'),
+  babel = require('gulp-babel');
 
 // Lint Task
 gulp.task('lint', function() {
   return gulp.src('dev/js/*.js')
-    .pipe(jshint())
+    .pipe(jshint({
+      esnext: true
+    }))
     .pipe(jshint.reporter(stylish, {beep: true}));
 });
 
@@ -31,6 +34,9 @@ gulp.task('sass', function() {
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
   return gulp.src('dev/js/*.js')
+    .pipe(babel({
+      presets: ['es2015']
+    }))
     .pipe(concat('all.js'))
     .pipe(rename('all.min.js'))
     .pipe(uglify().on('error', function(e){
